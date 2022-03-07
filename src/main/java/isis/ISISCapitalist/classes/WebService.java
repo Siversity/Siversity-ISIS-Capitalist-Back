@@ -1,10 +1,11 @@
 package isis.ISISCapitalist.classes;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@Path("generic")
+@RestController
+@RequestMapping("adventureisis/generic")
+@CrossOrigin
 public class WebService {
 
     Services services;
@@ -13,10 +14,10 @@ public class WebService {
         services = new Services();
     }
 
-    @GET
-    @Path("world")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON}) // pb affichage XML
-    public Response getWorld() {
-        return Response.ok(services.getWorld()).build();
+    // Affichage du monde customisé
+    @GetMapping(value = "world", produces = {"application/xml", "application/json"})
+    public ResponseEntity<World> getWorld() {
+        World world = services.getWorld();
+        return ResponseEntity.ok(world);
     }
 }
