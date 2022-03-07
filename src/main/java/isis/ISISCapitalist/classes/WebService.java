@@ -16,8 +16,8 @@ public class WebService {
 
     // Affichage du monde customisé
     @GetMapping(value = "world", produces = {"application/xml", "application/json"})
-    public ResponseEntity<World> getWorld() {
-        World world = services.getWorld();
+    public ResponseEntity<World> getWorld(@RequestHeader(value = "X-User", required = false) String username) {
+        World world = services.getWorld(username);
         return ResponseEntity.ok(world);
     }
 }
