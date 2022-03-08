@@ -14,6 +14,10 @@
     <name>ISISCapitalist</name>
     <description>Projet ISIS Capitalist - Léandre GARRIGA &amp; Stéphane SUN</description>
     
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
