@@ -1,6 +1,7 @@
 package isis.ISISCapitalist.classes;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -51,6 +52,7 @@ public class Services {
         try {
             // Variables
             InputStream input;
+            File file;
             JAXBContext jaxbContext;
 
             jaxbContext = JAXBContext.newInstance(World.class);
@@ -62,7 +64,8 @@ public class Services {
                 input = getClass().getClassLoader().getResourceAsStream("world.xml");
             } else {
                 // On récupère le fichier de sauvegarde en fonction du pseudo
-                input = getClass().getClassLoader().getResourceAsStream(pseudo + "-world.xml");
+                //input = getClass().getClassLoader().getResourceAsStream(pseudo + "-world.xml");
+                input = new FileInputStream("src/main/resources/" + pseudo + "-world.xml");
             }
 
             // On lit la sauvegarde
