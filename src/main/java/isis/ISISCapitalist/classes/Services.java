@@ -3,8 +3,12 @@ package isis.ISISCapitalist.classes;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Objects;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -29,11 +33,14 @@ public class Services {
 
                 // On déplace le contenu XML dans le fichier de sauvegarde
                 OutputStream output = new FileOutputStream(file);
+
+                //OutputStream output = Files.newOutputStream(Paths.get("src/main/resources/" + pseudo + "-world.xml"), StandardOpenOption.WRITE, StandardOpenOption.CREATE);
                 march.marshal(world, output);
 
                 System.out.println("Saveing : " + getProduct(world, 2).getQuantite());
 
                 // On ferme le OutputStream
+                output.flush();
                 output.close();
 
             } catch (Exception ex) {
@@ -67,7 +74,7 @@ public class Services {
             // On lit la sauvegarde
             world = (World) jaxbUnmarshaller.unmarshal(input);
             System.out.println("Service : " + getProduct(world, 2).getQuantite());
-
+            
             // On ferme le InputStream
             input.close();
 
@@ -128,8 +135,6 @@ public class Services {
         saveWorldToXml(world, username);
         return true;
     }
-
-   
 
     // Retourne un produit à partir de son id
     public ProductType getProduct(World world, int idProduct) {
