@@ -1,14 +1,9 @@
 package isis.ISISCapitalist.classes;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.Objects;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -40,7 +35,6 @@ public class Services {
                 System.out.println("Saveing : " + getProduct(world, 2).getQuantite());
 
                 // On ferme le OutputStream
-                output.flush();
                 output.close();
 
             } catch (Exception ex) {
