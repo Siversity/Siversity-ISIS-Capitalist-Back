@@ -21,6 +21,7 @@ public class WebService {
     public ResponseEntity<World> getWorld(@RequestHeader(value = "X-User", required = false) String username) {
         // On récupère le monde à partir du pseudo
         World world = services.getWorld(username);
+        System.out.println("Verif : " + services.getProduct(world, 2).getQuantite());
         
         // On retourne le monde existant ou nouvellement crée
         return ResponseEntity.ok(world);
@@ -28,13 +29,13 @@ public class WebService {
     
     // Modification d'un produit
     @PutMapping(value = "product", consumes = {"application/xml", "application/json"})
-    public ResponseEntity<ProductType> modifyProduct(@RequestBody ProductType newProduct, @RequestHeader(value = "X-User", required = false) String username) {
+    public ResponseEntity<ProductType> modifyProduct(@RequestBody ProductType product, @RequestHeader(value = "X-User", required = false) String username) {
         // On récupère le monde à partir du pseudo
         World world = services.getWorld(username);
         
         // On actualise le produit
-        if (services.updateProduct(username, newProduct)) {
-            return ResponseEntity.ok(newProduct);
+        if (services.updateProduct(username, product)) {
+            return ResponseEntity.ok(product);
         }
         else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -42,8 +43,8 @@ public class WebService {
     }
     
     
-    // Modification d'un produit
-    @PutMapping(value = "product", consumes = {"application/xml", "application/json"})
+    // Modification d'un manager
+    @PutMapping(value = "manager", consumes = {"application/xml", "application/json"})
     public ResponseEntity<PallierType> modifyManager(@RequestBody PallierType newManager, @RequestHeader(value = "X-User", required = false) String username) {
         // On récupère le monde à partir du pseudo
         World world = services.getWorld(username);

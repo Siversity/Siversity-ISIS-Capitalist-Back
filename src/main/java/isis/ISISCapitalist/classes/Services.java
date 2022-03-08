@@ -1,6 +1,7 @@
 package isis.ISISCapitalist.classes;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -11,16 +12,30 @@ import javax.xml.bind.Unmarshaller;
 
 public class Services {
 
+    // Sauvegarde d'un monde
     void saveWorldToXml(World world, String pseudo) {
+        // On vérifie que le pseudo n'est pas null ou vide
         if (!(Objects.isNull(pseudo) || (pseudo.isBlank()))) {
             JAXBContext jaxbContext;
             try {
                 jaxbContext = JAXBContext.newInstance(World.class);
                 Marshaller march = jaxbContext.createMarshaller();
+
+                // On spécifie le chemin du fichier
                 File file = new File("src/main/resources/" + pseudo + "-world.xml");
+
+                // On crée le fichier s'il n'existe pas déjà
                 file.createNewFile();
+
+                // On déplace le contenu XML dans le fichier de sauvegarde
                 OutputStream output = new FileOutputStream(file);
                 march.marshal(world, output);
+
+                System.out.println("Saveing : " + getProduct(world, 2).getQuantite());
+
+                // On ferme le OutputStream
+                output.close();
+
             } catch (Exception ex) {
                 System.out.println("Erreur écriture du fichier:" + ex.getMessage());
                 ex.printStackTrace();
@@ -28,24 +43,32 @@ public class Services {
         }
     }
 
+    // Lecture d'une sauvegarde d'un monde
     public World readWorldFromXml(String pseudo) {
         World world = new World();
-        InputStream input;
 
-        JAXBContext jaxbContext;
         try {
+            // Variables
+            InputStream input;
+            JAXBContext jaxbContext;
+
             jaxbContext = JAXBContext.newInstance(World.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-            // Pointeur sur world.xml
-            if ((Objects.isNull(pseudo)) || (pseudo.isBlank()) || (pseudo.equals("null"))) {
+            // On vérifie que le pseudo n'est pas null ou vide
+            if ((Objects.isNull(pseudo)) || (pseudo.isBlank()) || (pseudo.equals("null"))) { // ----> Déplacer vers WebService ou getWorld()
+                // On récupère le fichier de sauvegarde de base
                 input = getClass().getClassLoader().getResourceAsStream("world.xml");
-                System.out.println("Null : " + input);
             } else {
+                // On récupère le fichier de sauvegarde en fonction du pseudo
                 input = getClass().getClassLoader().getResourceAsStream(pseudo + "-world.xml");
             }
-            System.out.println("Final : " + input);
+
+            // On lit la sauvegarde
             world = (World) jaxbUnmarshaller.unmarshal(input);
+            System.out.println("Service : " + getProduct(world, 2).getQuantite());
+
+            // On ferme le InputStream
             input.close();
 
         } catch (Exception ex) {
@@ -53,54 +76,76 @@ public class Services {
             ex.printStackTrace();
         }
 
-        // Return
+        // Retour du monde
         return world;
     }
 
+    // Retourne un monde
     public World getWorld(String pseudo) {
         return readWorldFromXml(pseudo);
     }
 
-    
+    // Actualise un produit
     public Boolean updateProduct(String username, ProductType newProduct) {
-        // Aller chercher le monde qui correspond au joueur
+        // Récupération du monde
         World world = getWorld(username);
-        ProductType oldProduct = new ProductType();
-        // trouver dans ce monde, le produit équivalent à celui passé
-        // en paramètre
-        for (ProductType product : world.getProducts().getProduct()) {
-            if (product.getId() == newProduct.getId()) {
-                oldProduct = product;
-                break;
-            }
-        };
+
+        // Récupération du produit à actualiser
+        ProductType oldProduct = getProduct(world, newProduct.getId());
+
+        // Si le produit récupéré est null
         if (oldProduct == null) {
             return false;
         }
-        // calculer la variation de quantité. Si elle est positive c'est
-        // que le joueur a acheté une certaine quantité de ce produit
-        // sinon c’est qu’il s’agit d’un lancement de production.
+
+        // On détecte si la quantité de produit a évolué
         int qteChange = newProduct.getQuantite() - oldProduct.getQuantite();
+
+        // Si cette quantité a changé, on répercute les changements dans le monde
         if (qteChange > 0) {
-            // soustraire de l'argent du joueur le cout de la quantité achetée
+            System.out.println("La quantité a changé");
+            // Calcul et modification de la quantité achetée
             double un = newProduct.getCout() * Math.pow(oldProduct.getCroissance(), oldProduct.getQuantite());
             double numerator = 1 - Math.pow(oldProduct.getCroissance(), qteChange);
             double denominator = 1 - oldProduct.getCroissance();
             double quantityCost = (un * numerator) / denominator;
-            
+
+            System.out.println(oldProduct.getQuantite());
+            oldProduct.setQuantite(newProduct.getQuantite());
+            System.out.println(oldProduct.getQuantite());
+
+            // Modification du score du monde
             double newMoney = world.getMoney() - quantityCost;
             world.setMoney(newMoney);
-            // et mettre à jour la quantité de product
-            oldProduct.setQuantite(newProduct.getQuantite());
-        } else {
-            // initialiser product.timeleft à product.vitesse
+
+        } // Si cette quantité n'a pas changé, on active la production
+        else {
+            // Initialisation du temps de production
             oldProduct.setTimeleft(oldProduct.getVitesse());
-            // pour lancer la production
-            
         }
-        // sauvegarder les changements du monde
+
+        // Sauvegarde des changements dans le monde
         saveWorldToXml(world, username);
         return true;
+    }
+
+   
+
+    // Retourne un produit à partir de son id
+    public ProductType getProduct(World world, int idProduct) {
+        // Variable
+        ProductType product = null;
+
+        // On vérifie toute la liste des produits
+        for (ProductType p : world.getProducts().getProduct()) {
+            if (p.getId() == idProduct) {
+                product = p;
+                return product;
+            }
+        };
+
+        // Retour du produit
+        return product;
     }
 
 }
