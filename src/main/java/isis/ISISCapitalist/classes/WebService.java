@@ -1,6 +1,5 @@
 package isis.ISISCapitalist.classes;
 
-import java.lang.reflect.Field;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,11 +44,16 @@ public class WebService {
     
     // Modification d'un manager
     @PutMapping(value = "manager", consumes = {"application/xml", "application/json"})
-    public ResponseEntity<PallierType> modifyManager(@RequestBody PallierType newManager, @RequestHeader(value = "X-User", required = false) String username) {
+    public ResponseEntity<PallierType> modifyManager(@RequestBody PallierType manager, @RequestHeader(value = "X-User", required = false) String username) {
         // On récupère le monde à partir du pseudo
         World world = services.getWorld(username);
         
-        // On renvoie le manager
-        return ResponseEntity.ok(newManager);
+        // On actualise le manager
+        if (services.updateManager(username, manager)) {
+            return ResponseEntity.ok(manager);
+        }
+        else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     } 
 }

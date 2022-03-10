@@ -71,7 +71,7 @@ public class Services {
             // On lit la sauvegarde
             world = (World) jaxbUnmarshaller.unmarshal(input);
             System.out.println("Service : " + getProduct(world, 2).getQuantite());
-            
+
             // On ferme le InputStream
             input.close();
 
@@ -86,7 +86,31 @@ public class Services {
 
     // Retourne un monde
     public World getWorld(String pseudo) {
-        return readWorldFromXml(pseudo);
+        // Récupération du monde
+        World world = readWorldFromXml(pseudo);
+        long timePassed = System.currentTimeMillis() - world.getLastupdate();
+        
+        // Calcul du score
+        for(ProductType product : world.getProducts().getProduct()) {
+            // Cas où le produit a un manager
+            if (product.isManagerUnlocked()) {
+                long numberProducted = Math.floorDiv(timePassed, product.getVitesse());
+                double moneyProduced = numberProducted * product.getQuantite() * product.getRevenu();
+                world.setMoney(world.getMoney() + moneyProduced);
+            }
+            // Cas où le produit n'a pas de manager
+            if ((product.isManagerUnlocked() == false) && (product.getTimeleft() < timePassed) && (0 < product.getTimeleft())) {
+                double moneyProduced = product.getQuantite() * product.getRevenu();
+                world.setMoney(world.getMoney() + moneyProduced);
+            }
+        }
+        
+        // Actualisation de la dernière sauvegarde
+        world.setLastupdate(System.currentTimeMillis());
+        
+        // Sauvegarde du monde
+        saveWorldToXml(world, pseudo);
+        return world;
     }
 
     // Actualise un produit
@@ -148,6 +172,54 @@ public class Services {
 
         // Retour du produit
         return product;
+    }
+
+    // prend en paramètre le pseudo du joueur et le manager acheté.
+    // renvoie false si l’action n’a pas pu être traitée
+    public Boolean updateManager(String username, PallierType newManager) {
+        // aller chercher le monde qui correspond au joueur
+        World world = getWorld(username);
+        // trouver dans ce monde, le manager équivalent à celui passé
+        // en paramètre
+        PallierType manager = getManager(world, newManager.getName());
+        if (manager == null) {
+            return false;
+        }
+        // débloquer ce manager
+        manager.setUnlocked(true);
+        // trouver le produit correspondant au manager
+        ProductType product = getProduct(world, manager.getIdcible());
+        if (product == null) {
+            return false;
+        }
+        // débloquer le manager de ce produit
+        product.setManagerUnlocked(true);
+        
+        // soustraire de l'argent du joueur le cout du manager
+        double newMoney = world.getMoney() - manager.getSeuil();
+        world.setMoney(newMoney);
+        
+        // sauvegarder les changements au monde
+        saveWorldToXml(world, username);
+        return true;
+    }
+    
+    
+    // Retourne un manager à partir de son nom
+    public PallierType getManager(World world, String nameManager) {
+        // Variable
+        PallierType manager = null;
+
+        // On vérifie toute la liste des produits
+        for (PallierType m : world.getManagers().getPallier()) {
+            if (m.getName() == nameManager) {
+                manager = m;
+                return manager;
+            }
+        };
+
+        // Retour du produit
+        return manager;
     }
 
 }
