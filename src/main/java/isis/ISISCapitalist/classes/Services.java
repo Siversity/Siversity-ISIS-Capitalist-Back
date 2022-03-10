@@ -52,7 +52,7 @@ public class Services {
         try {
             // Variables
             InputStream input;
-            File file;
+            
             JAXBContext jaxbContext;
 
             jaxbContext = JAXBContext.newInstance(World.class);
@@ -63,9 +63,21 @@ public class Services {
                 // On récupère le fichier de sauvegarde de base
                 input = getClass().getClassLoader().getResourceAsStream("world.xml");
             } else {
+                File file = new File("src/main/resources/" + pseudo + "-world.xml");
+                // On vérifie que le fichier existe bien
+                if (file.isFile()) {
                 // On récupère le fichier de sauvegarde en fonction du pseudo
                 //input = getClass().getClassLoader().getResourceAsStream(pseudo + "-world.xml");
                 input = new FileInputStream("src/main/resources/" + pseudo + "-world.xml");
+                }
+                
+                else {
+                    input = getClass().getClassLoader().getResourceAsStream("world.xml");
+                    world = (World) jaxbUnmarshaller.unmarshal(input);
+                    saveWorldToXml(world, pseudo);
+                            
+                }
+                
             }
 
             // On lit la sauvegarde
