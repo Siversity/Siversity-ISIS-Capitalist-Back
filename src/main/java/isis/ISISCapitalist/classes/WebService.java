@@ -20,7 +20,6 @@ public class WebService {
     public ResponseEntity<World> getWorld(@RequestHeader(value = "X-User", required = false) String username) {
         // On récupère le monde à partir du pseudo
         World world = services.getWorld(username);
-        System.out.println("Verif : " + services.getProduct(world, 2).getQuantite());
         
         // On retourne le monde existant ou nouvellement crée
         return ResponseEntity.ok(world);

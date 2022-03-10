@@ -33,8 +33,6 @@ public class Services {
                 //OutputStream output = Files.newOutputStream(Paths.get("src/main/resources/" + pseudo + "-world.xml"), StandardOpenOption.WRITE, StandardOpenOption.CREATE);
                 march.marshal(world, output);
 
-                System.out.println("Saveing : " + getProduct(world, 2).getQuantite());
-
                 // On ferme le OutputStream
                 output.close();
 
@@ -82,7 +80,6 @@ public class Services {
 
             // On lit la sauvegarde
             world = (World) jaxbUnmarshaller.unmarshal(input);
-            System.out.println("Service : " + getProduct(world, 2).getQuantite());
 
             // On ferme le InputStream
             input.close();
@@ -143,16 +140,13 @@ public class Services {
 
         // Si cette quantité a changé, on répercute les changements dans le monde
         if (qteChange > 0) {
-            System.out.println("La quantité a changé");
             // Calcul et modification de la quantité achetée
             double un = newProduct.getCout() * Math.pow(oldProduct.getCroissance(), oldProduct.getQuantite());
             double numerator = 1 - Math.pow(oldProduct.getCroissance(), qteChange);
             double denominator = 1 - oldProduct.getCroissance();
             double quantityCost = (un * numerator) / denominator;
 
-            System.out.println(oldProduct.getQuantite());
             oldProduct.setQuantite(newProduct.getQuantite());
-            System.out.println(oldProduct.getQuantite());
 
             // Modification du score du monde
             double newMoney = world.getMoney() - quantityCost;
@@ -161,6 +155,7 @@ public class Services {
         } // Si cette quantité n'a pas changé, on active la production
         else {
             // Initialisation du temps de production
+            System.out.println(oldProduct.getTimeleft());
             oldProduct.setTimeleft(oldProduct.getVitesse());
         }
 
