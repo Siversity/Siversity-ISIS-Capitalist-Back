@@ -50,7 +50,7 @@ public class Services {
         try {
             // Variables
             InputStream input;
-            
+
             JAXBContext jaxbContext;
 
             jaxbContext = JAXBContext.newInstance(World.class);
@@ -64,18 +64,16 @@ public class Services {
                 File file = new File("src/main/resources/" + pseudo + "-world.xml");
                 // On vérifie que le fichier existe bien
                 if (file.isFile()) {
-                // On récupère le fichier de sauvegarde en fonction du pseudo
-                //input = getClass().getClassLoader().getResourceAsStream(pseudo + "-world.xml");
-                input = new FileInputStream("src/main/resources/" + pseudo + "-world.xml");
-                }
-                
-                else {
+                    // On récupère le fichier de sauvegarde en fonction du pseudo
+                    //input = getClass().getClassLoader().getResourceAsStream(pseudo + "-world.xml");
+                    input = new FileInputStream("src/main/resources/" + pseudo + "-world.xml");
+                } else {
                     input = getClass().getClassLoader().getResourceAsStream("world.xml");
                     world = (World) jaxbUnmarshaller.unmarshal(input);
                     saveWorldToXml(world, pseudo);
-                            
+
                 }
-                
+
             }
 
             // On lit la sauvegarde
@@ -98,25 +96,38 @@ public class Services {
         // Récupération du monde
         World world = readWorldFromXml(pseudo);
         long timePassed = System.currentTimeMillis() - world.getLastupdate();
-        
+
         // Calcul du score
-        for(ProductType product : world.getProducts().getProduct()) {
+        for (ProductType product : world.getProducts().getProduct()) {
             // Cas où le produit a un manager
             if (product.isManagerUnlocked()) {
                 long numberProducted = Math.floorDiv(timePassed, product.getVitesse());
                 double moneyProduced = numberProducted * product.getQuantite() * product.getRevenu();
                 world.setMoney(world.getMoney() + moneyProduced);
             }
+            /*
             // Cas où le produit n'a pas de manager
             if ((product.isManagerUnlocked() == false) && (product.getTimeleft() < timePassed) && (0 < product.getTimeleft())) {
                 double moneyProduced = product.getQuantite() * product.getRevenu();
                 world.setMoney(world.getMoney() + moneyProduced);
+                product.setTimeleft(0);
+                System.out.println("==> PRODUCTION " + product.getName() + " " + moneyProduced);
+            }
+             */
+            if ((product.isManagerUnlocked() == false) && (product.getTimeleft() != 0)) {
+                product.setTimeleft(product.getTimeleft() - timePassed);
+
+                if (product.getTimeleft() <= 0) {
+                    double moneyProduced = product.getQuantite() * product.getRevenu();
+                    world.setMoney(world.getMoney() + moneyProduced);
+                    product.setTimeleft(0);
+                }
             }
         }
-        
+
         // Actualisation de la dernière sauvegarde
         world.setLastupdate(System.currentTimeMillis());
-        
+
         // Sauvegarde du monde
         saveWorldToXml(world, pseudo);
         return world;
@@ -140,6 +151,7 @@ public class Services {
 
         // Si cette quantité a changé, on répercute les changements dans le monde
         if (qteChange > 0) {
+            System.out.println("Ajout " + oldProduct.getName() + " +" + qteChange);
             // Calcul et modification de la quantité achetée
             double un = newProduct.getCout() * Math.pow(oldProduct.getCroissance(), oldProduct.getQuantite());
             double numerator = 1 - Math.pow(oldProduct.getCroissance(), qteChange);
@@ -155,7 +167,6 @@ public class Services {
         } // Si cette quantité n'a pas changé, on active la production
         else {
             // Initialisation du temps de production
-            System.out.println(oldProduct.getTimeleft());
             oldProduct.setTimeleft(oldProduct.getVitesse());
         }
 
@@ -201,17 +212,16 @@ public class Services {
         }
         // débloquer le manager de ce produit
         product.setManagerUnlocked(true);
-        
+
         // soustraire de l'argent du joueur le cout du manager
         double newMoney = world.getMoney() - manager.getSeuil();
         world.setMoney(newMoney);
-        
+
         // sauvegarder les changements au monde
         saveWorldToXml(world, username);
         return true;
     }
-    
-    
+
     // Retourne un manager à partir de son nom
     public PallierType getManager(World world, String nameManager) {
         // Variable
