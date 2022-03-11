@@ -201,6 +201,7 @@ public class Services {
         // en paramètre
         PallierType manager = getManager(world, newManager.getName());
         if (manager == null) {
+            System.out.println("false manager");
             return false;
         }
         // débloquer ce manager
@@ -208,6 +209,7 @@ public class Services {
         // trouver le produit correspondant au manager
         ProductType product = getProduct(world, manager.getIdcible());
         if (product == null) {
+            System.out.println("false product");
             return false;
         }
         // débloquer le manager de ce produit
@@ -218,6 +220,8 @@ public class Services {
         world.setMoney(newMoney);
 
         // sauvegarder les changements au monde
+        System.out.println("Save manager : " + manager.isUnlocked());
+        System.out.println("Save product : " + product.isManagerUnlocked());
         saveWorldToXml(world, username);
         return true;
     }
@@ -229,7 +233,8 @@ public class Services {
 
         // On vérifie toute la liste des produits
         for (PallierType m : world.getManagers().getPallier()) {
-            if (m.getName() == nameManager) {
+            System.out.println(m.getName() + " == " + nameManager);
+            if (m.getName().equals(nameManager)) {
                 manager = m;
                 return manager;
             }

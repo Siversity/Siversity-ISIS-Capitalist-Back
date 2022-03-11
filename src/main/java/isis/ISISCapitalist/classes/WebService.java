@@ -44,11 +44,13 @@ public class WebService {
     // Modification d'un manager
     @PutMapping(value = "manager", consumes = {"application/xml", "application/json"})
     public ResponseEntity<PallierType> modifyManager(@RequestBody PallierType manager, @RequestHeader(value = "X-User", required = false) String username) {
+        System.out.println("Put manager : " + manager.isUnlocked());
         // On récupère le monde à partir du pseudo
         World world = services.getWorld(username);
         
         // On actualise le manager
         if (services.updateManager(username, manager)) {
+            System.out.println("Return manager : " + manager.isUnlocked());
             return ResponseEntity.ok(manager);
         }
         else {
