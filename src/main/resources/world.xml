@@ -4,8 +4,8 @@
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='../xsd/worldSchema.xsd'>
     <name>Kimetsu no Yaiba</name>
-    <logo>icones/user.png</logo>
-    <money>200000</money>
+    <logo>world/world.png</logo>
+    <money>0</money>
     <score>0</score>
     <totalangels>0</totalangels>
     <activeangels>0</activeangels>
