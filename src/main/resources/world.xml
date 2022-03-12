@@ -5,7 +5,7 @@
     xsi:noNamespaceSchemaLocation='../xsd/worldSchema.xsd'>
     <name>Kimetsu no Yaiba</name>
     <logo>world/world.png</logo>
-    <money>0</money>
+    <money>2000000</money>
     <score>0</score>
     <totalangels>0</totalangels>
     <activeangels>0</activeangels>
@@ -700,7 +700,7 @@
     <angelupgrades>
         <pallier>
             <name>Angel Global I</name>
-            <logo></logo>
+            <logo>angels/angel.png</logo>
             <seuil>301500</seuil>
             <idcible>0</idcible>
             <ratio>2</ratio>
