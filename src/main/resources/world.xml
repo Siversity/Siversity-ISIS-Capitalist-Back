@@ -506,14 +506,41 @@
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Unlocks Globaux -->
+        <!-- Global Unlocks -->
         <pallier>
-            <name>Global I</name>
-            <logo></logo>
+            <name>Unlock 1</name>
+            <logo>unlocks/global1.webp</logo>
             <seuil>1</seuil>
             <idcible>0</idcible>
             <ratio>2</ratio>
             <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Unlock 2</name>
+            <logo>unlocks/global2.webp</logo>
+            <seuil>100</seuil>
+            <idcible>0</idcible>
+            <ratio>2</ratio>
+            <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Unlock 3</name>
+            <logo>unlocks/global3.webp</logo>
+            <seuil>250</seuil>
+            <idcible>0</idcible>
+            <ratio>3</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Unlock 4</name>
+            <logo>unlocks/global4.webp</logo>
+            <seuil>500</seuil>
+            <idcible>0</idcible>
+            <ratio>3</ratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </allunlocks>
@@ -540,7 +567,7 @@
         <!-- Cash Upgrades n°2 -->
         <pallier>
             <name>Tête de sanglier</name>
-            <logo>upgrades/inosuke1</logo>
+            <logo>upgrades/inosuke1.png</logo>
             <seuil>5000</seuil>
             <idcible>2</idcible>
             <ratio>2</ratio>
@@ -549,7 +576,7 @@
         </pallier>
         <pallier>
             <name>Pièce</name>
-            <logo>upgrades/inosuke2</logo>
+            <logo>upgrades/inosuke2.png</logo>
             <seuil>5000</seuil>
             <idcible>2</idcible>
             <ratio>2</ratio>
@@ -597,7 +624,7 @@
         <!-- Cash Upgrades n°5 -->
         <pallier>
             <name>Uniforme de Giyu</name>
-            <logo>unlocks/tanjiro1.png</logo>
+            <logo>upgrades/tanjiro1.png</logo>
             <seuil>300000</seuil>
             <idcible>5</idcible>
             <ratio>2</ratio>
@@ -606,7 +633,7 @@
         </pallier>
         <pallier>
             <name>Boucles d'oreille</name>
-            <logo>unlocks/tanjiro2.png</logo>
+            <logo>upgrades/tanjiro2.png</logo>
             <seuil>300000</seuil>
             <idcible>5</idcible>
             <ratio>2</ratio>
@@ -632,14 +659,41 @@
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Cash Upgrades -->
+        <!-- Global Cash Upgrades -->
         <pallier>
-            <name>Upgrade Global I</name>
-            <logo></logo>
-            <seuil>301500</seuil>
+            <name>Assistance 1</name>
+            <logo>upgrades/global1.png</logo>
+            <seuil>1000000</seuil>
             <idcible>0</idcible>
             <ratio>2</ratio>
             <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Assistance 2</name>
+            <logo>upgrades/global2.png</logo>
+            <seuil>1000000</seuil>
+            <idcible>0</idcible>
+            <ratio>2</ratio>
+            <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Assistance 3</name>
+            <logo>upgrades/global3.png</logo>
+            <seuil>1000000</seuil>
+            <idcible>0</idcible>
+            <ratio>2</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Assistance 4</name>
+            <logo>upgrades/global4.png</logo>
+            <seuil>1000000</seuil>
+            <idcible>0</idcible>
+            <ratio>2</ratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </upgrades>
