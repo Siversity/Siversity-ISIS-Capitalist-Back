@@ -37,7 +37,6 @@ public class Services {
                 march.marshal(world, output);
 
                 // On ferme le OutputStream
-                output.flush();
                 output.close();
 
             } catch (Exception ex) {
@@ -109,8 +108,12 @@ public class Services {
                 long numberProducted = Math.floorDiv(timePassed, product.getVitesse());
                 double moneyProduced = numberProducted * product.getQuantite() * product.getRevenu();
                 world.setMoney(world.getMoney() + moneyProduced);
+                
+                product.setTimeleft(timePassed % product.getVitesse());
+                
             }
 
+            // Cas où le produit n'a pas de manager
             if ((product.isManagerUnlocked() == false) && (product.getTimeleft() != 0)) {
                 product.setTimeleft(product.getTimeleft() - timePassed);
 
@@ -120,17 +123,7 @@ public class Services {
                     product.setTimeleft(0);
                 }
             }
-            /*
-            else if (product.isManagerUnlocked() == true) {
-                double quotient = timePassed / product.getVitesse();
-                
-                long reste = timePassed % product.getVitesse();
-                product.setTimeleft(reste);
-                
-                double producedMoney = product.getQuantite() * product.getRevenu() * quotient;
-                world.setMoney(world.getMoney() + producedMoney);
-            }
-            */
+
         }
 
         // Actualisation de la dernière sauvegarde
