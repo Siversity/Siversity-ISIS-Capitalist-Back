@@ -132,7 +132,7 @@ public class Services {
         world.setLastupdate(System.currentTimeMillis());
 
         // Sauvegarde du monde
-        saveWorldToXml(world, pseudo);
+        // saveWorldToXml(world, pseudo);
         return world;
     }
 
