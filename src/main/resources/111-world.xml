@@ -1,47 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<world
-    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-    xsi:noNamespaceSchemaLocation='../xsd/worldSchema.xsd'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<world>
     <name>Kimetsu no Yaiba</name>
     <logo>icones/user.png</logo>
-    <money>200000</money>
-    <score>0</score>
-    <totalangels>0</totalangels>
-    <activeangels>0</activeangels>
+    <money>2.944321464726861E9</money>
+    <score>0.0</score>
+    <totalangels>0.0</totalangels>
+    <activeangels>0.0</activeangels>
     <angelbonus>0</angelbonus>
-    <lastupdate>0</lastupdate>
+    <lastupdate>1647097179792</lastupdate>
     <products>
         <product>
-            <!-- Produit N°1 Genya -->
             <id>1</id>
             <name>Genya</name>
             <logo>products/genya.webp</logo>
-            <cout>10</cout>
+            <cout>20484.00214585479</cout>
             <croissance>1.1</croissance>
-            <revenu>5</revenu>
-            <vitesse>500</vitesse>
-            <quantite>1</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
+            <revenu>20.0</revenu>
+            <vitesse>42</vitesse>
+            <quantite>81</quantite>
+            <timeleft>42</timeleft>
+            <managerUnlocked>true</managerUnlocked>
             <palliers>
-                <!-- Manager -->
                 <pallier>
                     <name>Gyomei Himejim</name>
                     <logo>managers/gyomei.webp</logo>
                     <seuil>500</seuil>
                     <idcible>1</idcible>
-                    <ratio>1</ratio>
+                    <ratio>1.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Unlocks -->
                 <pallier>
                     <name>Sanemi Shinazugawa</name>
                     <logo>unlocks/sanemi.webp</logo>
                     <seuil>50</seuil>
                     <idcible>1</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -50,17 +44,16 @@
                     <logo>unlocks/gyutaro.webp</logo>
                     <seuil>100</seuil>
                     <idcible>1</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Cash Upgrades -->
                 <pallier>
                     <name>Uniforme de Rengoku</name>
                     <logo>upgrades/genya1.png</logo>
                     <seuil>1000</seuil>
                     <idcible>1</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -69,42 +62,39 @@
                     <logo>upgrades/genya2.png</logo>
                     <seuil>1000</seuil>
                     <idcible>1</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
         </product>
-        <!-- Produit N°2 Inosuke -->
         <product>
             <id>2</id>
             <name>Inosuke</name>
             <logo>products/inosuke.webp</logo>
-            <cout>8</cout>
+            <cout>6840.408564572771</cout>
             <croissance>1.17</croissance>
-            <revenu>20</revenu>
-            <vitesse>3000</vitesse>
-            <quantite>0</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
+            <revenu>160.0</revenu>
+            <vitesse>750</vitesse>
+            <quantite>43</quantite>
+            <timeleft>750</timeleft>
+            <managerUnlocked>true</managerUnlocked>
             <palliers>
-                <!-- Manager -->
                 <pallier>
                     <name>Muichiro Tokito</name>
                     <logo>managers/muichiro.webp</logo>
                     <seuil>2000</seuil>
                     <idcible>2</idcible>
-                    <ratio>1</ratio>
+                    <ratio>1.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Unlocks -->
                 <pallier>
                     <name>Pouvoir</name>
                     <logo>unlocks/inosuke.png</logo>
                     <seuil>50</seuil>
                     <idcible>2</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -113,17 +103,16 @@
                     <logo>unlocks/daki.webp</logo>
                     <seuil>100</seuil>
                     <idcible>2</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Cash Upgrades -->
                 <pallier>
                     <name>Tête de sanglier</name>
                     <logo>upgrades/inosuke1</logo>
                     <seuil>5000</seuil>
                     <idcible>2</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -132,42 +121,39 @@
                     <logo>upgrades/inosuke2</logo>
                     <seuil>5000</seuil>
                     <idcible>2</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
         </product>
-        <!-- Produit N°3 Zenitsu -->
         <product>
             <id>3</id>
             <name>Zenitsu</name>
             <logo>products/zenitsu.webp</logo>
-            <cout>62</cout>
+            <cout>244678.69024654638</cout>
             <croissance>1.23</croissance>
-            <revenu>155</revenu>
-            <vitesse>9000</vitesse>
-            <quantite>0</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
+            <revenu>620.0</revenu>
+            <vitesse>4500</vitesse>
+            <quantite>40</quantite>
+            <timeleft>4500</timeleft>
+            <managerUnlocked>true</managerUnlocked>
             <palliers>
-                <!-- Manager -->
                 <pallier>
                     <name>Tengen Uzui</name>
                     <logo>managers/tengen.webp</logo>
                     <seuil>12000</seuil>
                     <idcible>3</idcible>
-                    <ratio>1</ratio>
+                    <ratio>1.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Unlocks -->
                 <pallier>
                     <name>Pouvoir</name>
                     <logo>unlocks/zenitsu.png</logo>
                     <seuil>50</seuil>
                     <idcible>3</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -176,17 +162,16 @@
                     <logo>unlocks/rui.webp</logo>
                     <seuil>100</seuil>
                     <idcible>3</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Cash Upgrades -->
                 <pallier>
                     <name>Uniforme de Zenitsu</name>
                     <logo>upgrades/zenitsu1.png</logo>
                     <seuil>28000</seuil>
                     <idcible>3</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -195,42 +180,39 @@
                     <logo>upgrades/zenitsu2.png</logo>
                     <seuil>28000</seuil>
                     <idcible>3</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
         </product>
-        <!-- Produit N°4 Kanao -->
         <product>
             <id>4</id>
             <name>Kanao</name>
             <logo>products/kanao.webp</logo>
-            <cout>925</cout>
+            <cout>1.999627802981645E7</cout>
             <croissance>1.33</croissance>
-            <revenu>2315</revenu>
-            <vitesse>15000</vitesse>
-            <quantite>0</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
+            <revenu>4630.0</revenu>
+            <vitesse>7500</vitesse>
+            <quantite>35</quantite>
+            <timeleft>7500</timeleft>
+            <managerUnlocked>true</managerUnlocked>
             <palliers>
-                <!-- Manager -->
                 <pallier>
                     <name>Shinobu Kocho</name>
                     <logo>managers/shinobu.webp</logo>
                     <seuil>124000</seuil>
                     <idcible>4</idcible>
-                    <ratio>1</ratio>
+                    <ratio>1.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Unlocks -->
                 <pallier>
                     <name>Kanae Kocho</name>
                     <logo>unlocks/kanae.webp</logo>
                     <seuil>50</seuil>
                     <idcible>4</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -239,17 +221,16 @@
                     <logo>unlocks/enmu.webp</logo>
                     <seuil>100</seuil>
                     <idcible>4</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Cash Upgrades -->
                 <pallier>
                     <name>Uniforme de Kocho</name>
                     <logo>upgrades/kanao1.png</logo>
                     <seuil>100000</seuil>
                     <idcible>4</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -258,42 +239,39 @@
                     <logo>upgrades/kanao2.png</logo>
                     <seuil>100000</seuil>
                     <idcible>4</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
         </product>
-        <!-- Produit N°5 Tanjiro -->
         <product>
             <id>5</id>
             <name>Tanjiro</name>
             <logo>products/tanjiro.webp</logo>
-            <cout>3608</cout>
+            <cout>5231.599999999999</cout>
             <croissance>1.45</croissance>
-            <revenu>90000</revenu>
-            <vitesse>20000</vitesse>
-            <quantite>0</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
+            <revenu>360000.0</revenu>
+            <vitesse>10000</vitesse>
+            <quantite>1</quantite>
+            <timeleft>10000</timeleft>
+            <managerUnlocked>true</managerUnlocked>
             <palliers>
-                <!-- Manager -->
                 <pallier>
                     <name>Giyu Tomiya</name>
                     <logo>managers/giyu.webp</logo>
                     <seuil>400000</seuil>
                     <idcible>5</idcible>
-                    <ratio>1</ratio>
+                    <ratio>1.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Unlocks -->
                 <pallier>
                     <name>Dnase du feu</name>
                     <logo>unlocks/tanjiro.png</logo>
                     <seuil>50</seuil>
                     <idcible>5</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -302,17 +280,16 @@
                     <logo>unlocks/rengoku.webp</logo>
                     <seuil>100</seuil>
                     <idcible>5</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Cash Upgrades -->
                 <pallier>
                     <name>Uniforme de Giyu</name>
                     <logo>unlocks/tanjiro1.png</logo>
                     <seuil>300000</seuil>
                     <idcible>5</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -321,42 +298,39 @@
                     <logo>unlocks/tanjiro2.png</logo>
                     <seuil>300000</seuil>
                     <idcible>5</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
         </product>
-        <!-- Produit N°6 Nezuko -->
         <product>
             <id>6</id>
             <name>Nezuko</name>
             <logo>products/nezuko.webp</logo>
-            <cout>406</cout>
+            <cout>295074.15906528453</cout>
             <croissance>1.66</croissance>
-            <revenu>1200000</revenu>
-            <vitesse>30000</vitesse>
-            <quantite>0</quantite>
-            <timeleft>0</timeleft>
-            <managerUnlocked>false</managerUnlocked>
+            <revenu>4800000.0</revenu>
+            <vitesse>7500</vitesse>
+            <quantite>13</quantite>
+            <timeleft>7500</timeleft>
+            <managerUnlocked>true</managerUnlocked>
             <palliers>
-                <!-- Manager -->
                 <pallier>
                     <name>Mitsuri Kanroji</name>
                     <logo>managers/mitsuri.webp</logo>
                     <seuil>5000000</seuil>
                     <idcible>6</idcible>
-                    <ratio>1</ratio>
+                    <ratio>1.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Unlocks -->
                 <pallier>
                     <name>Pouvoir du sang</name>
                     <logo>unlocks/nezuko.png</logo>
                     <seuil>50</seuil>
                     <idcible>6</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -365,17 +339,16 @@
                     <logo>unlocks/kukoshibo.png</logo>
                     <seuil>100</seuil>
                     <idcible>6</idcible>
-                    <ratio>3</ratio>
+                    <ratio>3.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
-                <!-- Cash Upgrades -->
                 <pallier>
                     <name>Uniforme de Muzan</name>
                     <logo>upgrades/nezuko1.png</logo>
                     <seuil>1000000</seuil>
                     <idcible>6</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -384,7 +357,7 @@
                     <logo>upgrades/nezuko2.png</logo>
                     <seuil>1000000</seuil>
                     <idcible>6</idcible>
-                    <ratio>2</ratio>
+                    <ratio>2.0</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -392,32 +365,30 @@
         </product>
     </products>
     <allunlocks>
-        <!-- Unlocks n°1 -->
         <pallier>
             <name>Sanemi Shinazugawa</name>
             <logo>unlocks/sanemi.webp</logo>
             <seuil>50</seuil>
             <idcible>1</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
         <pallier>
             <name>Gyutaro</name>
             <logo>unlocks/gyutaro.webp</logo>
             <seuil>100</seuil>
             <idcible>1</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Unlocks n°2 -->
         <pallier>
             <name>Pouvoir</name>
             <logo>unlocks/inosuke.png</logo>
             <seuil>50</seuil>
             <idcible>2</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -426,17 +397,16 @@
             <logo>unlocks/daki.webp</logo>
             <seuil>100</seuil>
             <idcible>2</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Unlocks n°3 -->
         <pallier>
             <name>Pouvoir</name>
             <logo>unlocks/zenitsu.png</logo>
             <seuil>50</seuil>
             <idcible>3</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -445,17 +415,16 @@
             <logo>unlocks/rui.webp</logo>
             <seuil>100</seuil>
             <idcible>3</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Unlocks n°4 -->
         <pallier>
             <name>Kanae Kocho</name>
             <logo>unlocks/kanae.webp</logo>
             <seuil>50</seuil>
             <idcible>4</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -464,17 +433,16 @@
             <logo>unlocks/enmu.webp</logo>
             <seuil>100</seuil>
             <idcible>4</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Unlocks n°5 -->
         <pallier>
             <name>Dnase du feu</name>
             <logo>unlocks/tanjiro.png</logo>
             <seuil>50</seuil>
             <idcible>5</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -483,17 +451,16 @@
             <logo>unlocks/rengoku.webp</logo>
             <seuil>100</seuil>
             <idcible>5</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Unlocks n°6 -->
         <pallier>
             <name>Pouvoir du sang</name>
             <logo>unlocks/nezuko.png</logo>
             <seuil>50</seuil>
             <idcible>6</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -502,67 +469,63 @@
             <logo>unlocks/kukoshibo.png</logo>
             <seuil>100</seuil>
             <idcible>6</idcible>
-            <ratio>3</ratio>
+            <ratio>3.0</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Unlocks Globaux -->
         <pallier>
             <name>Global I</name>
             <logo></logo>
             <seuil>1</seuil>
             <idcible>0</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
     </allunlocks>
     <upgrades>
-        <!-- Cash Upgrades n°1 -->
         <pallier>
             <name>Uniforme de Rengoku</name>
             <logo>upgrades/genya1.png</logo>
             <seuil>1000</seuil>
             <idcible>1</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
         <pallier>
             <name>Masque de renard</name>
             <logo>upgrades/genya2.png</logo>
             <seuil>1000</seuil>
             <idcible>1</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Cash Upgrades n°2 -->
         <pallier>
             <name>Tête de sanglier</name>
             <logo>upgrades/inosuke1</logo>
             <seuil>5000</seuil>
             <idcible>2</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
         <pallier>
             <name>Pièce</name>
             <logo>upgrades/inosuke2</logo>
             <seuil>5000</seuil>
             <idcible>2</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Cash Upgrades n°3 -->
         <pallier>
             <name>Uniforme de Zenitsu</name>
             <logo>upgrades/zenitsu1.png</logo>
             <seuil>28000</seuil>
             <idcible>3</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -571,17 +534,16 @@
             <logo>upgrades/zenitsu2.png</logo>
             <seuil>28000</seuil>
             <idcible>3</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Cash Upgrades n°4 -->
         <pallier>
             <name>Uniforme de Kocho</name>
             <logo>upgrades/kanao1.png</logo>
             <seuil>100000</seuil>
             <idcible>4</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -590,17 +552,16 @@
             <logo>upgrades/kanao2.png</logo>
             <seuil>100000</seuil>
             <idcible>4</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
-        <!-- Cash Upgrades n°5 -->
         <pallier>
             <name>Uniforme de Giyu</name>
             <logo>unlocks/tanjiro1.png</logo>
             <seuil>300000</seuil>
             <idcible>5</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -609,38 +570,36 @@
             <logo>unlocks/tanjiro2.png</logo>
             <seuil>300000</seuil>
             <idcible>5</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Cash Upgrades n°6 -->
         <pallier>
             <name>Uniforme de Muzan</name>
             <logo>upgrades/nezuko1.png</logo>
             <seuil>1000000</seuil>
             <idcible>6</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
         <pallier>
             <name>Boîte renforcée</name>
             <logo>upgrades/nezuko2.png</logo>
             <seuil>1000000</seuil>
             <idcible>6</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Cash Upgrades -->
         <pallier>
             <name>Upgrade Global I</name>
             <logo></logo>
             <seuil>301500</seuil>
             <idcible>0</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
     </upgrades>
     <angelupgrades>
@@ -649,72 +608,65 @@
             <logo></logo>
             <seuil>301500</seuil>
             <idcible>0</idcible>
-            <ratio>2</ratio>
+            <ratio>2.0</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </angelupgrades>
     <managers>
-        <!-- Manager n°1 -->
         <pallier>
             <name>Gyomei Himejim</name>
             <logo>managers/gyomei.webp</logo>
             <seuil>1000</seuil>
             <idcible>1</idcible>
-            <ratio>1</ratio>
+            <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Manager n°2 -->
         <pallier>
             <name>Muichiro Tokito</name>
             <logo>managers/muichiro.webp</logo>
             <seuil>2000</seuil>
             <idcible>2</idcible>
-            <ratio>1</ratio>
+            <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Manager n°3 -->
         <pallier>
             <name>Tengen Uzui</name>
             <logo>managers/tengen.webp</logo>
             <seuil>12000</seuil>
             <idcible>3</idcible>
-            <ratio>1</ratio>
+            <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Manager n°4 -->
         <pallier>
             <name>Shinobu Kocho</name>
             <logo>managers/shinobu.webp</logo>
             <seuil>124000</seuil>
             <idcible>4</idcible>
-            <ratio>1</ratio>
+            <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Manager n°5 -->
         <pallier>
             <name>Giyu Tomiya</name>
             <logo>managers/giyu.webp</logo>
             <seuil>400000</seuil>
             <idcible>5</idcible>
-            <ratio>1</ratio>
+            <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
-        <!-- Manager n°6 -->
         <pallier>
             <name>Mitsuri Kanroji</name>
             <logo>managers/mitsuri.webp</logo>
             <seuil>5000000</seuil>
             <idcible>6</idcible>
-            <ratio>1</ratio>
+            <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
+            <unlocked>true</unlocked>
         </pallier>
     </managers>
-
 </world>

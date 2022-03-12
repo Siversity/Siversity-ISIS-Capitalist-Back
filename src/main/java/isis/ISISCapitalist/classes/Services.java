@@ -22,6 +22,7 @@ public class Services {
             try {
                 jaxbContext = JAXBContext.newInstance(World.class);
                 Marshaller march = jaxbContext.createMarshaller();
+                march.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
                 // On spécifie le chemin du fichier
                 File file = new File("src/main/resources/" + pseudo + "-world.xml");
@@ -36,11 +37,13 @@ public class Services {
                 march.marshal(world, output);
 
                 // On ferme le OutputStream
+                output.flush();
                 output.close();
 
             } catch (Exception ex) {
                 System.out.println("Erreur écriture du fichier:" + ex.getMessage());
                 ex.printStackTrace();
+                System.exit(0);
             }
         }
     }
@@ -57,6 +60,7 @@ public class Services {
 
             jaxbContext = JAXBContext.newInstance(World.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            
 
             // On vérifie que le pseudo n'est pas null ou vide
             if ((Objects.isNull(pseudo)) || (pseudo.isBlank()) || (pseudo.equals("null"))) { // ----> Déplacer vers WebService ou getWorld()
@@ -77,14 +81,15 @@ public class Services {
 
             // On lit la sauvegarde
             world = (World) jaxbUnmarshaller.unmarshal(input);
-            saveWorldToXml(world, pseudo);
-
             // On ferme le InputStream
             input.close();
+            
+            saveWorldToXml(world, pseudo);
 
         } catch (Exception ex) {
             System.out.println("Erreur lecture du fichier:" + ex.getMessage());
             ex.printStackTrace();
+            System.exit(0);
         }
 
         // Retour du monde
@@ -132,7 +137,7 @@ public class Services {
         world.setLastupdate(System.currentTimeMillis());
 
         // Sauvegarde du monde
-        // saveWorldToXml(world, pseudo);
+        saveWorldToXml(world, pseudo);
         return world;
     }
 
