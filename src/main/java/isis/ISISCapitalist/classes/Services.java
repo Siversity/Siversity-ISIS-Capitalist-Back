@@ -1,5 +1,7 @@
 package isis.ISISCapitalist.classes;
 
+import static isis.ISISCapitalist.classes.TyperatioType.GAIN;
+import static isis.ISISCapitalist.classes.TyperatioType.VITESSE;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -25,7 +27,7 @@ public class Services {
                 File file = new File("src/main/resources/" + pseudo + "-world.xml");
 
                 // On crée le fichier s'il n'existe pas déjà
-                file.createNewFile();
+                // file.createNewFile();
 
                 // On déplace le contenu XML dans le fichier de sauvegarde
                 OutputStream output = new FileOutputStream(file);
@@ -69,15 +71,13 @@ public class Services {
                     input = new FileInputStream("src/main/resources/" + pseudo + "-world.xml");
                 } else {
                     input = getClass().getClassLoader().getResourceAsStream("world.xml");
-                    world = (World) jaxbUnmarshaller.unmarshal(input);
-                    saveWorldToXml(world, pseudo);
-
                 }
 
             }
 
             // On lit la sauvegarde
             world = (World) jaxbUnmarshaller.unmarshal(input);
+            saveWorldToXml(world, pseudo);
 
             // On ferme le InputStream
             input.close();
@@ -105,15 +105,7 @@ public class Services {
                 double moneyProduced = numberProducted * product.getQuantite() * product.getRevenu();
                 world.setMoney(world.getMoney() + moneyProduced);
             }
-            /*
-            // Cas où le produit n'a pas de manager
-            if ((product.isManagerUnlocked() == false) && (product.getTimeleft() < timePassed) && (0 < product.getTimeleft())) {
-                double moneyProduced = product.getQuantite() * product.getRevenu();
-                world.setMoney(world.getMoney() + moneyProduced);
-                product.setTimeleft(0);
-                System.out.println("==> PRODUCTION " + product.getName() + " " + moneyProduced);
-            }
-             */
+
             if ((product.isManagerUnlocked() == false) && (product.getTimeleft() != 0)) {
                 product.setTimeleft(product.getTimeleft() - timePassed);
 
@@ -123,6 +115,17 @@ public class Services {
                     product.setTimeleft(0);
                 }
             }
+            /*
+            else if (product.isManagerUnlocked() == true) {
+                double quotient = timePassed / product.getVitesse();
+                
+                long reste = timePassed % product.getVitesse();
+                product.setTimeleft(reste);
+                
+                double producedMoney = product.getQuantite() * product.getRevenu() * quotient;
+                world.setMoney(world.getMoney() + producedMoney);
+            }
+            */
         }
 
         // Actualisation de la dernière sauvegarde
@@ -151,18 +154,21 @@ public class Services {
 
         // Si cette quantité a changé, on répercute les changements dans le monde
         if (qteChange > 0) {
-            System.out.println("Ajout " + oldProduct.getName() + " +" + qteChange);
             // Calcul et modification de la quantité achetée
-            double un = newProduct.getCout() * Math.pow(oldProduct.getCroissance(), oldProduct.getQuantite());
+            // double un = newProduct.getCout() * Math.pow(oldProduct.getCroissance(), oldProduct.getQuantite());
+            double un = oldProduct.getCout();
             double numerator = 1 - Math.pow(oldProduct.getCroissance(), qteChange);
             double denominator = 1 - oldProduct.getCroissance();
             double quantityCost = (un * numerator) / denominator;
 
+            oldProduct.setCout(newProduct.getCout());
             oldProduct.setQuantite(newProduct.getQuantite());
 
             // Modification du score du monde
             double newMoney = world.getMoney() - quantityCost;
             world.setMoney(newMoney);
+
+            updateUnlock(world);
 
         } // Si cette quantité n'a pas changé, on active la production
         else {
@@ -201,7 +207,6 @@ public class Services {
         // en paramètre
         PallierType manager = getManager(world, newManager.getName());
         if (manager == null) {
-            System.out.println("false manager");
             return false;
         }
         // débloquer ce manager
@@ -209,7 +214,6 @@ public class Services {
         // trouver le produit correspondant au manager
         ProductType product = getProduct(world, manager.getIdcible());
         if (product == null) {
-            System.out.println("false product");
             return false;
         }
         // débloquer le manager de ce produit
@@ -220,8 +224,6 @@ public class Services {
         world.setMoney(newMoney);
 
         // sauvegarder les changements au monde
-        System.out.println("Save manager : " + manager.isUnlocked());
-        System.out.println("Save product : " + product.isManagerUnlocked());
         saveWorldToXml(world, username);
         return true;
     }
@@ -233,7 +235,6 @@ public class Services {
 
         // On vérifie toute la liste des produits
         for (PallierType m : world.getManagers().getPallier()) {
-            System.out.println(m.getName() + " == " + nameManager);
             if (m.getName().equals(nameManager)) {
                 manager = m;
                 return manager;
@@ -242,6 +243,100 @@ public class Services {
 
         // Retour du produit
         return manager;
+    }
+
+    public void updateUnlock(World world) {
+        for (PallierType unlock : world.getAllunlocks().getPallier()) {
+            // On vérifie que l'unlock n'est pas déjà dévérouillé
+            if (unlock.isUnlocked() == false) {
+
+                // Si c'est un unlock pour un produit particulier
+                if (unlock.getIdcible() != 0) {
+                    ProductType product = getProduct(world, unlock.getIdcible());
+
+                    // On vérifie que l'on a dépassé le seuil produit
+                    if (product.getQuantite() >= unlock.getSeuil()) {
+                        // On dévérouille l'unlock
+                        unlock.setUnlocked(true);
+
+                        // Appliquer les changements
+                        applyBonusToProduct(product, unlock.getRatio(), unlock.getTyperatio());
+                    }
+                } // Si c'est un unlock global
+                else if (unlock.getIdcible() == 0) {
+                    boolean status = true;
+
+                    for (ProductType p1 : world.getProducts().getProduct()) {
+                        if (p1.getQuantite() < unlock.getSeuil()) {
+                            status = false;
+                            break;
+                        }
+                    }
+
+                    // Si tous les produits valident les seuils, on applique le changement
+                    if (status == true) {
+                        unlock.setUnlocked(true);
+                        for (ProductType product : world.getProducts().getProduct()) {
+                            applyBonusToProduct(product, unlock.getRatio(), unlock.getTyperatio());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean updateUpgrade(String username, PallierType newUpgrade) {
+        World world = getWorld(username);
+
+        PallierType oldUpgrade = getUpgrade(world, newUpgrade.getName());
+        if (oldUpgrade == null) {
+            return false;
+        }
+
+        world.setMoney(world.getMoney() - oldUpgrade.getSeuil());
+        oldUpgrade.setUnlocked(true);
+
+        if (oldUpgrade.getIdcible() != 0) {
+            ProductType product = getProduct(world, oldUpgrade.getIdcible());
+            if (product == null) {
+                return false;
+            }
+            
+            applyBonusToProduct(product, oldUpgrade.getRatio(), oldUpgrade.getTyperatio());
+            
+        }
+        else if (oldUpgrade.getIdcible() == 0) {
+            for (ProductType product : world.getProducts().getProduct()) {
+                applyBonusToProduct(product, oldUpgrade.getRatio(), oldUpgrade.getTyperatio());
+            }
+        }
+        
+        saveWorldToXml(world, username);
+        return true;
+    }
+
+    
+    public PallierType getUpgrade(World world, String nameUpgrade) {
+        PallierType u = null;
+        for (PallierType upgrade : world.getUpgrades().getPallier()) {
+            if (upgrade.getName().equals(nameUpgrade)) {
+                u = upgrade;
+                return u;
+            }
+        }
+        return u;
+    }
+
+    public void applyBonusToProduct(ProductType product, double ratio, TyperatioType type) {
+        switch (type) {
+            case VITESSE:
+                product.setVitesse((int) Math.round(product.getVitesse() / ratio));
+                product.setTimeleft((long) Math.round(product.getTimeleft() / ratio));
+                break;
+            case GAIN:
+                product.setRevenu(product.getRevenu() * ratio);
+                break;
+        };
     }
 
 }
