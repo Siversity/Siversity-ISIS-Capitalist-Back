@@ -543,6 +543,25 @@
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
+        <!-- Angel Unlocks -->
+        <pallier>
+            <name>Naissance de Muzan</name>
+            <logo>angels/unlock.webp</logo>
+            <seuil>1000</seuil>
+            <idcible>0</idcible>
+            <ratio>2</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Transformation de Muzan</name>
+            <logo>angels/unlock.webp</logo>
+            <seuil>10000</seuil>
+            <idcible>0</idcible>
+            <ratio>5</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
     </allunlocks>
     <upgrades>
         <!-- Cash Upgrades n°1 -->
@@ -696,14 +715,51 @@
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
+        <!-- Angel Upgrades -->
+        <pallier>
+            <name>Renaissance de Muzan</name>
+            <logo>angels/upgrade.png</logo>
+            <seuil>10000000</seuil>
+            <idcible>0</idcible>
+            <ratio>1</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Réincarnation de Muzan</name>
+            <logo>angels/upgrade.png</logo>
+            <seuil>50000000</seuil>
+            <idcible>0</idcible>
+            <ratio>2</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
     </upgrades>
     <angelupgrades>
         <pallier>
-            <name>Angel Global I</name>
+            <name>Tuer Muzan x1</name>
             <logo>angels/angel.png</logo>
-            <seuil>301500</seuil>
+            <seuil>10</seuil>
             <idcible>0</idcible>
             <ratio>2</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Tuer Muzan x2</name>
+            <logo>angels/angel.png</logo>
+            <seuil>1000</seuil>
+            <idcible>0</idcible>
+            <ratio>4</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Tuer Muzan x3</name>
+            <logo>angels/angel.png</logo>
+            <seuil>1000000</seuil>
+            <idcible>0</idcible>
+            <ratio>6</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
