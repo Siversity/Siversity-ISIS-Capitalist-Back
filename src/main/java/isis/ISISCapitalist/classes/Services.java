@@ -1,5 +1,6 @@
 package isis.ISISCapitalist.classes;
 
+import static isis.ISISCapitalist.classes.TyperatioType.ANGE;
 import static isis.ISISCapitalist.classes.TyperatioType.GAIN;
 import static isis.ISISCapitalist.classes.TyperatioType.VITESSE;
 import java.io.File;
@@ -29,7 +30,6 @@ public class Services {
 
                 // On crée le fichier s'il n'existe pas déjà
                 // file.createNewFile();
-
                 // On déplace le contenu XML dans le fichier de sauvegarde
                 OutputStream output = new FileOutputStream(file);
 
@@ -59,7 +59,6 @@ public class Services {
 
             jaxbContext = JAXBContext.newInstance(World.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            
 
             // On vérifie que le pseudo n'est pas null ou vide
             if ((Objects.isNull(pseudo)) || (pseudo.isBlank()) || (pseudo.equals("null"))) { // ----> Déplacer vers WebService ou getWorld()
@@ -82,7 +81,7 @@ public class Services {
             world = (World) jaxbUnmarshaller.unmarshal(input);
             // On ferme le InputStream
             input.close();
-            
+
             saveWorldToXml(world, pseudo);
 
         } catch (Exception ex) {
@@ -106,10 +105,10 @@ public class Services {
             // Cas où le produit a un manager
             if (product.isManagerUnlocked()) {
                 long numberProducted = Math.floorDiv(timePassed, product.getVitesse());
-                double moneyProduced = numberProducted * product.getQuantite() * product.getRevenu();
+                double moneyProduced = numberProducted * product.getQuantite() * product.getRevenu() * (1 + (world.getActiveangels() * world.getAngelbonus()) / 100);
                 world.setMoney(world.getMoney() + moneyProduced);
                 world.setScore(world.getScore() + moneyProduced);
-                
+
                 product.setTimeleft(timePassed % product.getVitesse());
             }
 
@@ -118,10 +117,10 @@ public class Services {
                 product.setTimeleft(product.getTimeleft() - timePassed);
 
                 if (product.getTimeleft() <= 0) {
-                    double moneyProduced = product.getQuantite() * product.getRevenu();
+                    double moneyProduced = product.getQuantite() * product.getRevenu() * (1 + (world.getActiveangels() * world.getAngelbonus()) / 100);
                     world.setMoney(world.getMoney() + moneyProduced);
                     world.setScore(world.getScore() + moneyProduced);
-                    
+
                     product.setTimeleft(0);
                 }
             }
@@ -260,7 +259,12 @@ public class Services {
                         unlock.setUnlocked(true);
 
                         // Appliquer les changements
-                        applyBonusToProduct(product, unlock.getRatio(), unlock.getTyperatio());
+                        if (unlock.getTyperatio() != ANGE) {
+                            applyBonusToProduct(product, unlock.getRatio(), unlock.getTyperatio());
+                        } else if (unlock.getTyperatio() == ANGE) {
+                            applyBonusToWorld(world, unlock.getRatio(), unlock.getTyperatio());
+                        }
+
                     }
                 } // Si c'est un unlock global
                 else if (unlock.getIdcible() == 0) {
@@ -276,9 +280,15 @@ public class Services {
                     // Si tous les produits valident les seuils, on applique le changement
                     if (status == true) {
                         unlock.setUnlocked(true);
-                        for (ProductType product : world.getProducts().getProduct()) {
-                            applyBonusToProduct(product, unlock.getRatio(), unlock.getTyperatio());
+
+                        if (unlock.getTyperatio() != ANGE) {
+                            for (ProductType product : world.getProducts().getProduct()) {
+                                applyBonusToProduct(product, unlock.getRatio(), unlock.getTyperatio());
+                            }
+                        } else if (unlock.getTyperatio() == ANGE) {
+                            applyBonusToWorld(world, unlock.getRatio(), unlock.getTyperatio());
                         }
+
                     }
                 }
             }
@@ -296,26 +306,57 @@ public class Services {
         world.setMoney(world.getMoney() - oldUpgrade.getSeuil());
         oldUpgrade.setUnlocked(true);
 
-        if (oldUpgrade.getIdcible() != 0) {
+        if ((oldUpgrade.getIdcible() != 0) && (oldUpgrade.getTyperatio() != ANGE)) {
             ProductType product = getProduct(world, oldUpgrade.getIdcible());
             if (product == null) {
                 return false;
             }
-            
+
             applyBonusToProduct(product, oldUpgrade.getRatio(), oldUpgrade.getTyperatio());
-            
-        }
-        else if (oldUpgrade.getIdcible() == 0) {
+
+        } else if ((oldUpgrade.getIdcible() == 0) && (oldUpgrade.getTyperatio() != ANGE)) {
             for (ProductType product : world.getProducts().getProduct()) {
                 applyBonusToProduct(product, oldUpgrade.getRatio(), oldUpgrade.getTyperatio());
             }
+        } else if ((oldUpgrade.getIdcible() == -1) && (oldUpgrade.getTyperatio() == ANGE)) {
+            applyBonusToWorld(world, oldUpgrade.getRatio(), oldUpgrade.getTyperatio());
         }
-        
+
         saveWorldToXml(world, username);
         return true;
     }
 
-    
+    public boolean updateAngelUpgrade(String username, PallierType newAngelUpgrade) {
+        World world = getWorld(username);
+
+        PallierType oldAngelUpgrade = getUpgrade(world, newAngelUpgrade.getName());
+        if (oldAngelUpgrade == null) {
+            return false;
+        }
+
+        world.setMoney(world.getMoney() - oldAngelUpgrade.getSeuil());
+        oldAngelUpgrade.setUnlocked(true);
+
+        if ((oldAngelUpgrade.getIdcible() != 0) && (oldAngelUpgrade.getTyperatio() != ANGE)) {
+            ProductType product = getProduct(world, oldAngelUpgrade.getIdcible());
+            if (product == null) {
+                return false;
+            }
+
+            applyBonusToProduct(product, oldAngelUpgrade.getRatio(), oldAngelUpgrade.getTyperatio());
+
+        } else if ((oldAngelUpgrade.getIdcible() == 0) && (oldAngelUpgrade.getTyperatio() != ANGE)) {
+            for (ProductType product : world.getProducts().getProduct()) {
+                applyBonusToProduct(product, oldAngelUpgrade.getRatio(), oldAngelUpgrade.getTyperatio());
+            }
+        } else if ((oldAngelUpgrade.getIdcible() == -1) && (oldAngelUpgrade.getTyperatio() == ANGE)) {
+            applyBonusToWorld(world, oldAngelUpgrade.getRatio(), oldAngelUpgrade.getTyperatio());
+        }
+
+        saveWorldToXml(world, username);
+        return true;
+    }
+
     public PallierType getUpgrade(World world, String nameUpgrade) {
         PallierType u = null;
         for (PallierType upgrade : world.getUpgrades().getPallier()) {
@@ -337,6 +378,55 @@ public class Services {
                 product.setRevenu(product.getRevenu() * ratio);
                 break;
         };
+    }
+
+    public void applyBonusToWorld(World world, double ratio, TyperatioType type) {
+        if (type == ANGE) {
+            world.setAngelbonus(world.getAngelbonus() + (int) Math.round(ratio));
+        }
+    }
+
+    
+    public boolean resetWorld(String username) {
+        
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(World.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            
+            // On récupère l'ancien monde et ses données
+            World oldWorld = getWorld(username);
+            double score = oldWorld.getScore();
+            double activeAngels = oldWorld.getActiveangels();
+            double totalAngels = oldWorld.getTotalangels();
+            
+            // On calcule le nombre d'anges gagné
+            double gainAngel = (150 * Math.sqrt(score/Math.pow(10, 15))) - totalAngels;
+            
+            // On récupère une sauvegarde vierge
+            InputStream input = getClass().getClassLoader().getResourceAsStream("world.xml");
+            World newWorld = (World) jaxbUnmarshaller.unmarshal(input);
+
+            // On initialise le nouveau monde
+            newWorld.setScore(score);
+            newWorld.setActiveangels(gainAngel);
+            newWorld.setTotalangels(totalAngels + gainAngel);
+            
+            System.out.println("Active angels : " + newWorld.getActiveangels());
+            
+            saveWorldToXml(newWorld, username);
+                    
+        } catch (Exception ex) {
+            System.out.println("Erreur lecture du fichier:" + ex.getMessage());
+            ex.printStackTrace();
+            System.exit(0);
+            return false;
+        }
+        
+        return true;
+
+        
+
+        
     }
 
 }

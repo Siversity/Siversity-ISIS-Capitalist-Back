@@ -2,24 +2,24 @@
 <world>
     <name>Kimetsu no Yaiba</name>
     <logo>world/world.png</logo>
-    <money>1158085.4975696425</money>
-    <score>1131185.0</score>
-    <totalangels>0.0</totalangels>
-    <activeangels>0.0</activeangels>
-    <angelbonus>0</angelbonus>
-    <lastupdate>1647125546330</lastupdate>
+    <money>2000000.0</money>
+    <score>1.0E11</score>
+    <totalangels>1.5</totalangels>
+    <activeangels>1.5</activeangels>
+    <angelbonus>2</angelbonus>
+    <lastupdate>1647134257348</lastupdate>
     <products>
         <product>
             <id>1</id>
             <name>Genya</name>
             <logo>products/genya.webp</logo>
-            <cout>183419.9502430357</cout>
+            <cout>10.0</cout>
             <croissance>1.1</croissance>
-            <revenu>15.0</revenu>
-            <vitesse>167</vitesse>
-            <quantite>104</quantite>
-            <timeleft>157</timeleft>
-            <managerUnlocked>true</managerUnlocked>
+            <revenu>5.0</revenu>
+            <vitesse>500</vitesse>
+            <quantite>1</quantite>
+            <timeleft>0</timeleft>
+            <managerUnlocked>false</managerUnlocked>
             <palliers>
                 <pallier>
                     <name>Gyomei Himejim</name>
@@ -77,8 +77,8 @@
             <revenu>20.0</revenu>
             <vitesse>3000</vitesse>
             <quantite>0</quantite>
-            <timeleft>2167</timeleft>
-            <managerUnlocked>true</managerUnlocked>
+            <timeleft>0</timeleft>
+            <managerUnlocked>false</managerUnlocked>
             <palliers>
                 <pallier>
                     <name>Muichiro Tokito</name>
@@ -136,8 +136,8 @@
             <revenu>155.0</revenu>
             <vitesse>9000</vitesse>
             <quantite>0</quantite>
-            <timeleft>5167</timeleft>
-            <managerUnlocked>true</managerUnlocked>
+            <timeleft>0</timeleft>
+            <managerUnlocked>false</managerUnlocked>
             <palliers>
                 <pallier>
                     <name>Tengen Uzui</name>
@@ -195,8 +195,8 @@
             <revenu>2315.0</revenu>
             <vitesse>15000</vitesse>
             <quantite>0</quantite>
-            <timeleft>5167</timeleft>
-            <managerUnlocked>true</managerUnlocked>
+            <timeleft>0</timeleft>
+            <managerUnlocked>false</managerUnlocked>
             <palliers>
                 <pallier>
                     <name>Shinobu Kocho</name>
@@ -372,7 +372,7 @@
             <idcible>1</idcible>
             <ratio>3.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>true</unlocked>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Gyutaro</name>
@@ -381,7 +381,7 @@
             <idcible>1</idcible>
             <ratio>3.0</ratio>
             <typeratio>gain</typeratio>
-            <unlocked>true</unlocked>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Pouvoir</name>
@@ -507,6 +507,33 @@
             <idcible>0</idcible>
             <ratio>3.0</ratio>
             <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Naissance de Muzan</name>
+            <logo>angels/unlock.webp</logo>
+            <seuil>1000</seuil>
+            <idcible>0</idcible>
+            <ratio>2.0</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Transformation de Muzan</name>
+            <logo>angels/unlock.webp</logo>
+            <seuil>10000</seuil>
+            <idcible>0</idcible>
+            <ratio>5.0</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Test de Muzan</name>
+            <logo>angels/unlock.webp</logo>
+            <seuil>1</seuil>
+            <idcible>0</idcible>
+            <ratio>5.0</ratio>
+            <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </allunlocks>
@@ -655,15 +682,78 @@
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
+        <pallier>
+            <name>Renaissance de Muzan</name>
+            <logo>angels/upgrade.png</logo>
+            <seuil>10000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>1.0</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Réincarnation de Muzan</name>
+            <logo>angels/upgrade.png</logo>
+            <seuil>50000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>2.0</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Test de Muzan</name>
+            <logo>angels/upgrade.png</logo>
+            <seuil>1</seuil>
+            <idcible>-1</idcible>
+            <ratio>2.0</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
     </upgrades>
     <angelupgrades>
         <pallier>
-            <name>Angel Global I</name>
+            <name>Tuer Muzan x1</name>
             <logo>angels/angel.png</logo>
-            <seuil>301500</seuil>
-            <idcible>0</idcible>
+            <seuil>10</seuil>
+            <idcible>-1</idcible>
             <ratio>2.0</ratio>
             <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Tuer Muzan x2</name>
+            <logo>angels/angel.png</logo>
+            <seuil>1000</seuil>
+            <idcible>-1</idcible>
+            <ratio>4.0</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Tuer Muzan x3</name>
+            <logo>angels/angel.png</logo>
+            <seuil>1000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>6.0</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Eradiquer les démons</name>
+            <logo>angels/angel.png</logo>
+            <seuil>1000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>6.0</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Renforcer l'armée</name>
+            <logo>angels/angel.png</logo>
+            <seuil>1000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>6.0</ratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </angelupgrades>
@@ -675,7 +765,7 @@
             <idcible>1</idcible>
             <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>true</unlocked>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Muichiro Tokito</name>
@@ -684,7 +774,7 @@
             <idcible>2</idcible>
             <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>true</unlocked>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Tengen Uzui</name>
@@ -693,7 +783,7 @@
             <idcible>3</idcible>
             <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>true</unlocked>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Shinobu Kocho</name>
@@ -702,7 +792,7 @@
             <idcible>4</idcible>
             <ratio>1.0</ratio>
             <typeratio>vitesse</typeratio>
-            <unlocked>true</unlocked>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Giyu Tomiya</name>

@@ -6,10 +6,10 @@
     <name>Kimetsu no Yaiba</name>
     <logo>world/world.png</logo>
     <money>2000000</money>
-    <score>0</score>
+    <score>100000000000</score>
     <totalangels>0</totalangels>
-    <activeangels>0</activeangels>
-    <angelbonus>0</angelbonus>
+    <activeangels>2000</activeangels>
+    <angelbonus>2</angelbonus>
     <lastupdate>0</lastupdate>
     <products>
         <product>
@@ -548,7 +548,7 @@
             <name>Naissance de Muzan</name>
             <logo>angels/unlock.webp</logo>
             <seuil>1000</seuil>
-            <idcible>-1</idcible>
+            <idcible>0</idcible>
             <ratio>2</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
@@ -557,7 +557,16 @@
             <name>Transformation de Muzan</name>
             <logo>angels/unlock.webp</logo>
             <seuil>10000</seuil>
-            <idcible>-1</idcible>
+            <idcible>0</idcible>
+            <ratio>5</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Test de Muzan</name>
+            <logo>angels/unlock.webp</logo>
+            <seuil>1</seuil>
+            <idcible>0</idcible>
             <ratio>5</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
@@ -729,6 +738,15 @@
             <name>Réincarnation de Muzan</name>
             <logo>angels/upgrade.png</logo>
             <seuil>50000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>2</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Test de Muzan</name>
+            <logo>angels/upgrade.png</logo>
+            <seuil>1</seuil>
             <idcible>-1</idcible>
             <ratio>2</ratio>
             <typeratio>ange</typeratio>

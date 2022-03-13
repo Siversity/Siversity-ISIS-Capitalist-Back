@@ -64,5 +64,32 @@ public class WebService {
         else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-    } 
+    }
+    
+    
+    // Modification d'un angel upgrade
+    @PutMapping(value = "angelupgrade", consumes = {"application/xml", "application/json"})
+    public ResponseEntity<PallierType> modifyAngelUpgrade(@RequestBody PallierType angelUpgrade, @RequestHeader(value = "X-User", required = false) String username) {
+
+        // On actualise le manager
+        if (services.updateAngelUpgrade(username, angelUpgrade)) {
+            return ResponseEntity.ok(angelUpgrade);
+        }
+        else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    
+    @DeleteMapping(value = "world")
+    public ResponseEntity<Void> resetWorld(@RequestHeader(value = "X-User", required = false) String username) {
+        System.out.println("Reset requested");
+        if (services.resetWorld(username)) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+    }
+    
 }
