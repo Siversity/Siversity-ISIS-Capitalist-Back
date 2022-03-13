@@ -325,12 +325,27 @@ public class Services {
         saveWorldToXml(world, username);
         return true;
     }
+    
+    
+    public PallierType getUpgrade(World world, String nameUpgrade) {
+        PallierType u = null;
+        for (PallierType upgrade : world.getUpgrades().getPallier()) {
+            if (upgrade.getName().equals(nameUpgrade)) {
+                u = upgrade;
+                return u;
+            }
+        }
+        return u;
+    }
+    
+    
 
     public boolean updateAngelUpgrade(String username, PallierType newAngelUpgrade) {
         World world = getWorld(username);
 
-        PallierType oldAngelUpgrade = getUpgrade(world, newAngelUpgrade.getName());
+        PallierType oldAngelUpgrade = getUpgradeAngel(world, newAngelUpgrade.getName());
         if (oldAngelUpgrade == null) {
+            System.out.println("Upgrade is not found");
             return false;
         }
 
@@ -340,6 +355,7 @@ public class Services {
         if ((oldAngelUpgrade.getIdcible() != 0) && (oldAngelUpgrade.getTyperatio() != ANGE)) {
             ProductType product = getProduct(world, oldAngelUpgrade.getIdcible());
             if (product == null) {
+                System.out.println("Product is not found");
                 return false;
             }
 
@@ -356,17 +372,20 @@ public class Services {
         saveWorldToXml(world, username);
         return true;
     }
-
-    public PallierType getUpgrade(World world, String nameUpgrade) {
-        PallierType u = null;
-        for (PallierType upgrade : world.getUpgrades().getPallier()) {
-            if (upgrade.getName().equals(nameUpgrade)) {
-                u = upgrade;
-                return u;
+    
+    
+    public PallierType getUpgradeAngel(World world, String nameAngelUpgrade) {
+        PallierType a = null;
+        for (PallierType upgrade : world.getAngelupgrades().getPallier()) {
+            if (upgrade.getName().equals(nameAngelUpgrade)) {
+                a = upgrade;
+                return a;
             }
         }
-        return u;
+        return a;
     }
+
+    
 
     public void applyBonusToProduct(ProductType product, double ratio, TyperatioType type) {
         switch (type) {

@@ -70,7 +70,7 @@ public class WebService {
     // Modification d'un angel upgrade
     @PutMapping(value = "angelupgrade", consumes = {"application/xml", "application/json"})
     public ResponseEntity<PallierType> modifyAngelUpgrade(@RequestBody PallierType angelUpgrade, @RequestHeader(value = "X-User", required = false) String username) {
-
+        System.out.println("Angel upgrade acheté");
         // On actualise le manager
         if (services.updateAngelUpgrade(username, angelUpgrade)) {
             return ResponseEntity.ok(angelUpgrade);
