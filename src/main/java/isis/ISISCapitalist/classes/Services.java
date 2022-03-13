@@ -351,6 +351,8 @@ public class Services {
 
         world.setMoney(world.getMoney() - oldAngelUpgrade.getSeuil());
         oldAngelUpgrade.setUnlocked(true);
+        
+        world.setActiveangels(world.getActiveangels() - oldAngelUpgrade.getSeuil());
 
         if ((oldAngelUpgrade.getIdcible() != 0) && (oldAngelUpgrade.getTyperatio() != ANGE)) {
             ProductType product = getProduct(world, oldAngelUpgrade.getIdcible());
@@ -427,7 +429,7 @@ public class Services {
 
             // On initialise le nouveau monde
             newWorld.setScore(score);
-            newWorld.setActiveangels(gainAngel);
+            newWorld.setActiveangels(activeAngels + gainAngel);
             newWorld.setTotalangels(totalAngels + gainAngel);
             
             System.out.println("Active angels : " + newWorld.getActiveangels());
