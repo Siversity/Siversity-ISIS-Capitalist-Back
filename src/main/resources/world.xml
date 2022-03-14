@@ -5,10 +5,10 @@
     xsi:noNamespaceSchemaLocation='../xsd/worldSchema.xsd'>
     <name>Kimetsu no Yaiba</name>
     <logo>world/world.png</logo>
-    <money>2000000</money>
-    <score>100000000000</score>
+    <money>0</money>
+    <score>0</score>
     <totalangels>0</totalangels>
-    <activeangels>2000</activeangels>
+    <activeangels>0</activeangels>
     <angelbonus>2</angelbonus>
     <lastupdate>0</lastupdate>
     <products>
@@ -27,7 +27,7 @@
             <palliers>
                 <!-- Manager -->
                 <pallier>
-                    <name>Gyomei Himejim</name>
+                    <name>Pillier de la Roche Gyomei Himejim</name>
                     <logo>managers/gyomei.webp</logo>
                     <seuil>500</seuil>
                     <idcible>1</idcible>
@@ -37,7 +37,7 @@
                 </pallier>
                 <!-- Unlocks -->
                 <pallier>
-                    <name>Sanemi Shinazugawa</name>
+                    <name>Pillier du Vent Sanemi Shinazugawa</name>
                     <logo>unlocks/sanemi.webp</logo>
                     <seuil>50</seuil>
                     <idcible>1</idcible>
@@ -46,7 +46,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Gyutaro</name>
+                    <name>6ème Lune Supérieure Gyutaro</name>
                     <logo>unlocks/gyutaro.webp</logo>
                     <seuil>100</seuil>
                     <idcible>1</idcible>
@@ -65,7 +65,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Masque de renard</name>
+                    <name>Masque de Renard</name>
                     <logo>upgrades/genya2.png</logo>
                     <seuil>1000</seuil>
                     <idcible>1</idcible>
@@ -90,7 +90,7 @@
             <palliers>
                 <!-- Manager -->
                 <pallier>
-                    <name>Muichiro Tokito</name>
+                    <name>Pillier de la Brume Muichiro Tokito</name>
                     <logo>managers/muichiro.webp</logo>
                     <seuil>2000</seuil>
                     <idcible>2</idcible>
@@ -100,7 +100,7 @@
                 </pallier>
                 <!-- Unlocks -->
                 <pallier>
-                    <name>Pouvoir</name>
+                    <name>Souffle Bestial</name>
                     <logo>unlocks/inosuke.png</logo>
                     <seuil>50</seuil>
                     <idcible>2</idcible>
@@ -109,7 +109,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Daki</name>
+                    <name>6ème Lune Supérieure Daki</name>
                     <logo>unlocks/daki.webp</logo>
                     <seuil>100</seuil>
                     <idcible>2</idcible>
@@ -119,7 +119,7 @@
                 </pallier>
                 <!-- Cash Upgrades -->
                 <pallier>
-                    <name>Tête de sanglier</name>
+                    <name>Tête de Sanglier</name>
                     <logo>upgrades/inosuke1</logo>
                     <seuil>5000</seuil>
                     <idcible>2</idcible>
@@ -128,7 +128,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Pièce</name>
+                    <name>Pièce en Or</name>
                     <logo>upgrades/inosuke2</logo>
                     <seuil>5000</seuil>
                     <idcible>2</idcible>
@@ -153,7 +153,7 @@
             <palliers>
                 <!-- Manager -->
                 <pallier>
-                    <name>Tengen Uzui</name>
+                    <name>Pillier du Son Tengen Uzui</name>
                     <logo>managers/tengen.webp</logo>
                     <seuil>12000</seuil>
                     <idcible>3</idcible>
@@ -163,7 +163,7 @@
                 </pallier>
                 <!-- Unlocks -->
                 <pallier>
-                    <name>Pouvoir</name>
+                    <name>Souffle de la Foudre</name>
                     <logo>unlocks/zenitsu.png</logo>
                     <seuil>50</seuil>
                     <idcible>3</idcible>
@@ -172,7 +172,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Rui</name>
+                    <name>5ème Lune Inférieure Rui</name>
                     <logo>unlocks/rui.webp</logo>
                     <seuil>100</seuil>
                     <idcible>3</idcible>
@@ -191,7 +191,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Insigne</name>
+                    <name>Maîtrise des Arts Martiaux</name>
                     <logo>upgrades/zenitsu2.png</logo>
                     <seuil>28000</seuil>
                     <idcible>3</idcible>
@@ -216,7 +216,7 @@
             <palliers>
                 <!-- Manager -->
                 <pallier>
-                    <name>Shinobu Kocho</name>
+                    <name>Pillier de l'Insecte Shinobu Kocho</name>
                     <logo>managers/shinobu.webp</logo>
                     <seuil>124000</seuil>
                     <idcible>4</idcible>
@@ -226,7 +226,7 @@
                 </pallier>
                 <!-- Unlocks -->
                 <pallier>
-                    <name>Kanae Kocho</name>
+                    <name>Ancien Pillier de la Fleur Kanae Kocho</name>
                     <logo>unlocks/kanae.webp</logo>
                     <seuil>50</seuil>
                     <idcible>4</idcible>
@@ -235,7 +235,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Enmu</name>
+                    <name>1ère Lune Inférieure Enmu</name>
                     <logo>unlocks/enmu.webp</logo>
                     <seuil>100</seuil>
                     <idcible>4</idcible>
@@ -254,7 +254,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Pièce</name>
+                    <name>Pièce en Bronze</name>
                     <logo>upgrades/kanao2.png</logo>
                     <seuil>100000</seuil>
                     <idcible>4</idcible>
@@ -279,7 +279,7 @@
             <palliers>
                 <!-- Manager -->
                 <pallier>
-                    <name>Giyu Tomiya</name>
+                    <name>Pillier de l'Eau Giyu Tomiya</name>
                     <logo>managers/giyu.webp</logo>
                     <seuil>400000</seuil>
                     <idcible>5</idcible>
@@ -289,7 +289,7 @@
                 </pallier>
                 <!-- Unlocks -->
                 <pallier>
-                    <name>Dnase du feu</name>
+                    <name>Souffle du Soleil</name>
                     <logo>unlocks/tanjiro.png</logo>
                     <seuil>50</seuil>
                     <idcible>5</idcible>
@@ -298,7 +298,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Kyojuro Rengoku</name>
+                    <name>Pillier du Feu Kyojuro Rengoku</name>
                     <logo>unlocks/rengoku.webp</logo>
                     <seuil>100</seuil>
                     <idcible>5</idcible>
@@ -317,7 +317,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Boucles d'oreille</name>
+                    <name>Boucles d'Oreilles Hanafuda</name>
                     <logo>unlocks/tanjiro2.png</logo>
                     <seuil>300000</seuil>
                     <idcible>5</idcible>
@@ -342,7 +342,7 @@
             <palliers>
                 <!-- Manager -->
                 <pallier>
-                    <name>Mitsuri Kanroji</name>
+                    <name>Pillier de l'Amour Mitsuri Kanroji</name>
                     <logo>managers/mitsuri.webp</logo>
                     <seuil>5000000</seuil>
                     <idcible>6</idcible>
@@ -352,7 +352,7 @@
                 </pallier>
                 <!-- Unlocks -->
                 <pallier>
-                    <name>Pouvoir du sang</name>
+                    <name>Pouvoir Sanguinaire</name>
                     <logo>unlocks/nezuko.png</logo>
                     <seuil>50</seuil>
                     <idcible>6</idcible>
@@ -361,7 +361,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Kukoshibo</name>
+                    <name>1ère Lune Supérieure Kukoshibo</name>
                     <logo>unlocks/kukoshibo.png</logo>
                     <seuil>100</seuil>
                     <idcible>6</idcible>
@@ -380,7 +380,7 @@
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
-                    <name>Boîte renforcée</name>
+                    <name>Boîte Imperméable Renforcée</name>
                     <logo>upgrades/nezuko2.png</logo>
                     <seuil>1000000</seuil>
                     <idcible>6</idcible>
@@ -394,7 +394,7 @@
     <allunlocks>
         <!-- Unlocks n°1 -->
         <pallier>
-            <name>Sanemi Shinazugawa</name>
+            <name>Pillier du Vent Sanemi Shinazugawa</name>
             <logo>unlocks/sanemi.webp</logo>
             <seuil>50</seuil>
             <idcible>1</idcible>
@@ -403,7 +403,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Gyutaro</name>
+            <name>6ème Lune Supérieure Gyutaro</name>
             <logo>unlocks/gyutaro.webp</logo>
             <seuil>100</seuil>
             <idcible>1</idcible>
@@ -413,7 +413,7 @@
         </pallier>
         <!-- Unlocks n°2 -->
         <pallier>
-            <name>Pouvoir</name>
+            <name>Souffle Bestial</name>
             <logo>unlocks/inosuke.png</logo>
             <seuil>50</seuil>
             <idcible>2</idcible>
@@ -422,7 +422,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Daki</name>
+            <name>6ème Lune Supérieure Daki</name>
             <logo>unlocks/daki.webp</logo>
             <seuil>100</seuil>
             <idcible>2</idcible>
@@ -432,7 +432,7 @@
         </pallier>
         <!-- Unlocks n°3 -->
         <pallier>
-            <name>Pouvoir</name>
+            <name>Souffle de la Foudre</name>
             <logo>unlocks/zenitsu.png</logo>
             <seuil>50</seuil>
             <idcible>3</idcible>
@@ -441,7 +441,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Rui</name>
+            <name>5ème Lune Inférieure Rui</name>
             <logo>unlocks/rui.webp</logo>
             <seuil>100</seuil>
             <idcible>3</idcible>
@@ -451,7 +451,7 @@
         </pallier>
         <!-- Unlocks n°4 -->
         <pallier>
-            <name>Kanae Kocho</name>
+            <name>Pillier de l'Insecte Kanae Kocho</name>
             <logo>unlocks/kanae.webp</logo>
             <seuil>50</seuil>
             <idcible>4</idcible>
@@ -460,7 +460,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Enmu</name>
+            <name>1ère Lune Inférieure Enmu</name>
             <logo>unlocks/enmu.webp</logo>
             <seuil>100</seuil>
             <idcible>4</idcible>
@@ -470,7 +470,7 @@
         </pallier>
         <!-- Unlocks n°5 -->
         <pallier>
-            <name>Dnase du feu</name>
+            <name>Souffle du Soleil</name>
             <logo>unlocks/tanjiro.png</logo>
             <seuil>50</seuil>
             <idcible>5</idcible>
@@ -479,7 +479,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Kyojuro Rengoku</name>
+            <name>Pillier du Feu Kyojuro Rengoku</name>
             <logo>unlocks/rengoku.webp</logo>
             <seuil>100</seuil>
             <idcible>5</idcible>
@@ -489,7 +489,7 @@
         </pallier>
         <!-- Unlocks n°6 -->
         <pallier>
-            <name>Pouvoir du sang</name>
+            <name>Pouvoir Sanguinaire</name>
             <logo>unlocks/nezuko.png</logo>
             <seuil>50</seuil>
             <idcible>6</idcible>
@@ -498,7 +498,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Kukoshibo</name>
+            <name>1ère Lune Supérieure Kukoshibo</name>
             <logo>unlocks/kukoshibo.png</logo>
             <seuil>100</seuil>
             <idcible>6</idcible>
@@ -508,7 +508,7 @@
         </pallier>
         <!-- Global Unlocks -->
         <pallier>
-            <name>Unlock 1</name>
+            <name>Ancien Pillier de l'Eau Sakonji Urokodaki</name>
             <logo>unlocks/global1.webp</logo>
             <seuil>1</seuil>
             <idcible>0</idcible>
@@ -517,7 +517,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Unlock 2</name>
+            <name>Pillier du Serpent Obanai Iguro</name>
             <logo>unlocks/global2.webp</logo>
             <seuil>100</seuil>
             <idcible>0</idcible>
@@ -526,7 +526,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Unlock 3</name>
+            <name>Démon Sauvage Yahaba</name>
             <logo>unlocks/global3.webp</logo>
             <seuil>250</seuil>
             <idcible>0</idcible>
@@ -535,7 +535,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Unlock 4</name>
+            <name>Démon Sauvage Susamaru</name>
             <logo>unlocks/global4.webp</logo>
             <seuil>500</seuil>
             <idcible>0</idcible>
@@ -547,7 +547,7 @@
         <pallier>
             <name>Naissance de Muzan</name>
             <logo>angels/unlock.webp</logo>
-            <seuil>1000</seuil>
+            <seuil>10</seuil>
             <idcible>0</idcible>
             <ratio>2</ratio>
             <typeratio>ange</typeratio>
@@ -556,16 +556,16 @@
         <pallier>
             <name>Transformation de Muzan</name>
             <logo>angels/unlock.webp</logo>
-            <seuil>10000</seuil>
+            <seuil>1000</seuil>
             <idcible>0</idcible>
             <ratio>5</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Test de Muzan</name>
+            <name>Renaissance de Muzan</name>
             <logo>angels/unlock.webp</logo>
-            <seuil>1</seuil>
+            <seuil>10000</seuil>
             <idcible>0</idcible>
             <ratio>5</ratio>
             <typeratio>ange</typeratio>
@@ -584,7 +584,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Masque de renard</name>
+            <name>Masque de Renard</name>
             <logo>upgrades/genya2.png</logo>
             <seuil>1000</seuil>
             <idcible>1</idcible>
@@ -594,7 +594,7 @@
         </pallier>
         <!-- Cash Upgrades n°2 -->
         <pallier>
-            <name>Tête de sanglier</name>
+            <name>Tête de Sanglier</name>
             <logo>upgrades/inosuke1.png</logo>
             <seuil>5000</seuil>
             <idcible>2</idcible>
@@ -603,7 +603,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Pièce</name>
+            <name>Pièce en Or</name>
             <logo>upgrades/inosuke2.png</logo>
             <seuil>5000</seuil>
             <idcible>2</idcible>
@@ -622,7 +622,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Insigne</name>
+            <name>Maîtrise des Arts Martiaux</name>
             <logo>upgrades/zenitsu2.png</logo>
             <seuil>28000</seuil>
             <idcible>3</idcible>
@@ -641,7 +641,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Pièce</name>
+            <name>Pièce en Bronze</name>
             <logo>upgrades/kanao2.png</logo>
             <seuil>100000</seuil>
             <idcible>4</idcible>
@@ -660,7 +660,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Boucles d'oreille</name>
+            <name>Boucles d'Oreilles Hanafuda</name>
             <logo>upgrades/tanjiro2.png</logo>
             <seuil>300000</seuil>
             <idcible>5</idcible>
@@ -679,7 +679,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Boîte renforcée</name>
+            <name>Boîte Imperméable Renforcée</name>
             <logo>upgrades/nezuko2.png</logo>
             <seuil>1000000</seuil>
             <idcible>6</idcible>
@@ -689,7 +689,7 @@
         </pallier>
         <!-- Global Cash Upgrades -->
         <pallier>
-            <name>Assistance 1</name>
+            <name>Assistance de Sabito et Makomo</name>
             <logo>upgrades/global1.png</logo>
             <seuil>1000000</seuil>
             <idcible>0</idcible>
@@ -698,7 +698,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Assistance 2</name>
+            <name>Assistance du Forgeron Haganezuka</name>
             <logo>upgrades/global2.png</logo>
             <seuil>1000000</seuil>
             <idcible>0</idcible>
@@ -707,7 +707,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Assistance 3</name>
+            <name>Assistance de Yushiro</name>
             <logo>upgrades/global3.png</logo>
             <seuil>1000000</seuil>
             <idcible>0</idcible>
@@ -716,7 +716,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Assistance 4</name>
+            <name>Assistance de Tamayo</name>
             <logo>upgrades/global4.png</logo>
             <seuil>1000000</seuil>
             <idcible>0</idcible>
@@ -726,7 +726,7 @@
         </pallier>
         <!-- Angel Upgrades -->
         <pallier>
-            <name>Renaissance de Muzan</name>
+            <name>Eliminer les Lunes Inférieures</name>
             <logo>angels/upgrade.png</logo>
             <seuil>10000000</seuil>
             <idcible>-1</idcible>
@@ -735,7 +735,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Réincarnation de Muzan</name>
+            <name>Eliminer les Lunes Supérieures</name>
             <logo>angels/upgrade.png</logo>
             <seuil>50000000</seuil>
             <idcible>-1</idcible>
@@ -744,7 +744,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Test de Muzan</name>
+            <name>Affaiblir Muzan</name>
             <logo>angels/upgrade.png</logo>
             <seuil>1</seuil>
             <idcible>-1</idcible>
@@ -755,7 +755,7 @@
     </upgrades>
     <angelupgrades>
         <pallier>
-            <name>Tuer Muzan x1</name>
+            <name>Tuer la 1ère forme de Muzan</name>
             <logo>angels/angel.png</logo>
             <seuil>10</seuil>
             <idcible>-1</idcible>
@@ -764,7 +764,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Tuer Muzan x2</name>
+            <name>Tuer la 2ème forme de Muzan</name>
             <logo>angels/angel.png</logo>
             <seuil>1000</seuil>
             <idcible>-1</idcible>
@@ -773,7 +773,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Tuer Muzan x3</name>
+            <name>Tuer Muzan</name>
             <logo>angels/angel.png</logo>
             <seuil>1000000</seuil>
             <idcible>-1</idcible>
@@ -782,7 +782,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Eradiquer les démons</name>
+            <name>Eradiquer les Lunes</name>
             <logo>angels/angel.png</logo>
             <seuil>1000000</seuil>
             <idcible>-1</idcible>
@@ -791,7 +791,7 @@
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Renforcer l'armée</name>
+            <name>Eradiquer les Démons</name>
             <logo>angels/angel.png</logo>
             <seuil>1000000</seuil>
             <idcible>-1</idcible>
@@ -803,7 +803,7 @@
     <managers>
         <!-- Manager n°1 -->
         <pallier>
-            <name>Gyomei Himejim</name>
+            <name>Pillier de la Roche Gyomei Himejim</name>
             <logo>managers/gyomei.webp</logo>
             <seuil>1000</seuil>
             <idcible>1</idcible>
@@ -813,7 +813,7 @@
         </pallier>
         <!-- Manager n°2 -->
         <pallier>
-            <name>Muichiro Tokito</name>
+            <name>Pillier de la Brume Muichiro Tokito</name>
             <logo>managers/muichiro.webp</logo>
             <seuil>2000</seuil>
             <idcible>2</idcible>
@@ -823,7 +823,7 @@
         </pallier>
         <!-- Manager n°3 -->
         <pallier>
-            <name>Tengen Uzui</name>
+            <name>Pillier du Son Tengen Uzui</name>
             <logo>managers/tengen.webp</logo>
             <seuil>12000</seuil>
             <idcible>3</idcible>
@@ -833,7 +833,7 @@
         </pallier>
         <!-- Manager n°4 -->
         <pallier>
-            <name>Shinobu Kocho</name>
+            <name>Pillier de l'Insecte Shinobu Kocho</name>
             <logo>managers/shinobu.webp</logo>
             <seuil>124000</seuil>
             <idcible>4</idcible>
@@ -843,7 +843,7 @@
         </pallier>
         <!-- Manager n°5 -->
         <pallier>
-            <name>Giyu Tomiya</name>
+            <name>Pillier de l'Eau Giyu Tomiya</name>
             <logo>managers/giyu.webp</logo>
             <seuil>400000</seuil>
             <idcible>5</idcible>
@@ -853,7 +853,7 @@
         </pallier>
         <!-- Manager n°6 -->
         <pallier>
-            <name>Mitsuri Kanroji</name>
+            <name>Pillier de l'Amour Mitsuri Kanroji</name>
             <logo>managers/mitsuri.webp</logo>
             <seuil>5000000</seuil>
             <idcible>6</idcible>
